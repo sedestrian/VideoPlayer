@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -23,10 +23,10 @@
     <table class="items" style="margin-left:auto; margin-right:auto;">
         <tr>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><button id="elem1" class='inside' disabled>button</button></div>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><button id="elem1" class="inside" disabled>button</button></div>
             </td>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><input id="elem2" type="text" class='inside' value="input" disabled/></div>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><input id="elem2" type="text" class="inside" value="input" disabled/></div>
             </td>
         </tr>
         <tr>
@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><img id="elem5" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" class='inside'/></div>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><img id="elem5" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" class="inside"/></div>
             </td>
             <td>
                 <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><div id="elem6" class="inside"><input type="checkbox"/><span style="font-size: 16px;">Checkbox</span></div></div>
@@ -54,12 +54,12 @@
         <h1> HTML5 Video </h1>
 
         <div id="video_container" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <video id="player" controls width=1000 preload poster=assets/poster.jpg>
-                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.mp4" type="video/mp4">
-                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.ogg" type="video/ogg">
+            <video id="player" controls width="1000" preload poster="assets/poster.jpg">
+                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.mp4" type="video/mp4"/>
+                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.ogg" type="video/ogg"/>
 
                 <!-- FLASH FALLBACK -->
-                <object width="1000" height="776"><param name="movie" value="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1000" height="776"></embed></object>
+                <object width="1000" height="776"><param name="movie" value="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1"/><param name="allowFullScreen" value="true"/><param name="allowscriptaccess" value="always"/><embed src="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1000" height="776"/></object>
             </video>
 
             <div id="overlayControls">
