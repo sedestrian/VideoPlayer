@@ -69,8 +69,8 @@
       <file leaf-file-name="videoPlayer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/videoPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="389" column="0" selection-start-line="389" selection-start-column="0" selection-end-line="389" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
               <folding>
                 <marker date="1479132583496" expanded="true" signature="4607:4615" ph="..." />
                 <marker date="1479132583496" expanded="true" signature="4615:4623" ph="..." />
@@ -381,12 +381,12 @@
       <workItem from="1479031631309" duration="16176000" />
       <workItem from="1479083115663" duration="1034000" />
       <workItem from="1479084624677" duration="5944000" />
-      <workItem from="1479129097443" duration="3165000" />
+      <workItem from="1479129097443" duration="3169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104040000" />
+    <option name="totallyTimeSpent" value="104044000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -858,8 +858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/videoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="389" column="0" selection-start-line="389" selection-start-column="0" selection-end-line="389" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
           <folding>
             <marker date="1479132583496" expanded="true" signature="4607:4615" ph="..." />
             <marker date="1479132583496" expanded="true" signature="4615:4623" ph="..." />
