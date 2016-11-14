@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>How to Code a HTML5 Video Player</title>
+    <link rel="stylesheet" href="css/videoPlayer.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/jquery/dist/jquery-ui.min.css">
+
+    <style>
+        /* Unnecessary for video functionality. Feel free to remove. */
+        body { background: #666; font-family: 'Myriad-Pro', helvetica, sans-serif; }
+        #container { width: 1000px; margin: auto; margin-top: 30px;}
+        h1 { font-size: 50px; color: #777; text-align: center; text-shadow: 0 -1px 0 black, 0 1px 0 black;}
+    </style>
+
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <table class="items" style="margin-left:auto; margin-right:auto;">
+        <tr>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><button id="elem1" class='inside' disabled>button</button></div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><input id="elem2" type="text" class='inside' value="input" disabled/></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><a id="elem3" class="inside" href="#" disabled>link</a></div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><div id="elem4" class="inside" style="border: 1px dashed; height: 80%;" disabled></div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><img id="elem5" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" class='inside'/></div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><div id="elem6" class="inside"><input type="checkbox"/><span style="font-size: 16px;">Checkbox</span></div></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="main">
+    <div id="container">
+
+        <h1> HTML5 Video </h1>
+
+        <div id="video_container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <video id="player" controls width=1000 preload poster=assets/poster.jpg>
+                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.mp4" type="video/mp4">
+                <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.ogg" type="video/ogg">
+
+                <!-- FLASH FALLBACK -->
+                <object width="1000" height="776"><param name="movie" value="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1000" height="776"></embed></object>
+            </video>
+
+            <div id="overlayControls">
+
+
+
+            </div>
+
+            <div id="videoControls">
+                <button id="play" title="Play"> &#x25BA; </button>
+
+                <div id="progress">
+                    <div id="progress_box">
+                        <span id="play_progress"></span>
+                    </div>
+                </div>
+
+                <button id="fullScreen" title="FullScreen Toggle">  FS </button>
+                <a href="http://www.tutsplus.com"><img src="img/tuts_logo.png" alt="Tuts" id="video_tutsLogo" /></a>
+            </div>
+        </div>
+        <button id="getpos">EDIT</button>
+
+    </div>
+</div>
+
+<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="bower_components/jquery/dist/jquery-ui.min.js"></script>
+<script src="js/videoPlayer.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

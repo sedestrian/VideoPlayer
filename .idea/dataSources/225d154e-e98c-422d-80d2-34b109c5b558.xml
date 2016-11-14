@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - test@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="test">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="phpmyadmin"/>
+    <table id="6" parent="1" name="overlays"/>
+    <table id="7" parent="1" name="project"/>
+    <table id="8" parent="1" name="timestamps"/>
+    <column id="9" parent="6" name="overlays_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="6" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="11" parent="6" name="overlay_type">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="12" parent="6" name="overlay_props">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="13" parent="6" name="PRIMARY">
+      <columns>overlays_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="14" parent="7" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="7" name="project_name">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <key id="16" parent="7" name="PRIMARY">
+      <columns>project_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="17" parent="8" name="timestamps_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="18" parent="8" name="video_time_from">
+      <mandatory>1</mandatory>
+      <data-type>double|0</data-type>
+    </column>
+    <column id="19" parent="8" name="video_time_to">
+      <mandatory>1</mandatory>
+      <data-type>double|0</data-type>
+    </column>
+    <column id="20" parent="8" name="visible">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="21" parent="8" name="position_x">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="22" parent="8" name="position_y">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="23" parent="8" name="overlays_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="24" parent="8" name="PRIMARY">
+      <columns>timestamps_id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
