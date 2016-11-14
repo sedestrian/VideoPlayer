@@ -23,26 +23,26 @@
     <table class="items" style="margin-left:auto; margin-right:auto;">
         <tr>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><button id="elem1" class="inside" disabled>button</button></div>
+                <div draggable="true" class="itemcontainer"><button id="elem1" class="inside" disabled>button</button></div>
             </td>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><input id="elem2" type="text" class="inside" value="input" disabled/></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><a id="elem3" class="inside" href="#" disabled>link</a></div>
-            </td>
-            <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><div id="elem4" class="inside" style="border: 1px dashed; height: 80%;" disabled></div></div>
+                <div draggable="true" class="itemcontainer"><input id="elem2" type="text" class="inside" value="input" disabled/></div>
             </td>
         </tr>
         <tr>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><img id="elem5" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" class="inside"/></div>
+                <div draggable="true" class="itemcontainer"><a id="elem3" class="inside" href="#" disabled>link</a></div>
             </td>
             <td>
-                <div draggable="true" ondragstart="drag(event)" class="itemcontainer"><div id="elem6" class="inside"><input type="checkbox"/><span style="font-size: 16px;">Checkbox</span></div></div>
+                <div draggable="true" class="itemcontainer"><div id="elem4" class="inside" style="border: 1px dashed; height: 80%;" disabled></div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div draggable="true" class="itemcontainer"><img id="elem5" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" class="inside"/></div>
+            </td>
+            <td>
+                <div draggable="true" class="itemcontainer"><div id="elem6" class="inside"><input type="checkbox" disabled/><span style="font-size: 16px;">Checkbox</span></div></div>
             </td>
         </tr>
     </table>
@@ -53,7 +53,7 @@
 
         <h1> HTML5 Video </h1>
 
-        <div id="video_container" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="video_container">
             <video id="player" controls width="1000" preload poster="assets/poster.jpg">
                 <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.mp4" type="video/mp4"/>
                 <source src="http://nettuts.s3.amazonaws.com/763_sammyJSIntro/trailer_test.ogg" type="video/ogg"/>
@@ -62,9 +62,7 @@
                 <object width="1000" height="776"><param name="movie" value="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1"/><param name="allowFullScreen" value="true"/><param name="allowscriptaccess" value="always"/><embed src="http://www.youtube.com/v/2AzuX9Lrjv4&amp;hl=en_US&amp;fs=1?color1=0x3a3a3a&amp;color2=0x999999&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1000" height="776"/></object>
             </video>
 
-            <div id="overlayControls">
-
-
+            <div id="overlayControls" class="overlay">
 
             </div>
 
