@@ -13,8 +13,10 @@
         playProgressInterval,
         isVideoFullScreen = false,
 
+        progressContainer = document.getElementById("progress"),
         progressHolder = document.getElementById("progress_box"),
         playProgressBar = document.getElementById("play_progress"),
+        getposbutton = document.getElementById("getpos"),
 
         fullScreenToggleButton = document.getElementById("fullScreen"),
 
@@ -38,7 +40,7 @@
 
         init: function () {
             // If IE 8 or less, get outta here.
-            if (ie < 9) {return;}
+            if (ie < 9) return;
 
             // this is equal to the videoPlayer object.
             var that = this;
@@ -81,7 +83,7 @@
                 videoControls.style.opacity = 1;
             }, false);
 
-            video.addEventListener('mouseout', function () {
+            video.addEventListener('mouseout', function (e) {
                 videoControls.style.opacity = 0;
             }, false);
 
@@ -198,7 +200,7 @@
                     document.onmouseup = null;
                     document.onmousemove = null;
 
-                    console.log("spostato a:", videoPlayer.currentTime, videoPlayer.duration);
+
 
                     video.play();
                     videoPlayer.setPlayProgress(e.pageX);
@@ -224,7 +226,7 @@
         // Determines if the escape key was pressed.
         checkKeyCode: function (e) {
             e = e || window.event;
-            if ((e.keyCode || e.which) === 27) {videoPlayer.fullScreenOff();}
+            if ((e.keyCode || e.which) === 27) videoPlayer.fullScreenOff();
         }
 
     };
@@ -236,15 +238,15 @@
                 project: 1
             },
             function (data, status) {
-                console.log(data);
+
                 overlays = JSON.parse(data);
                 if (overlays !== 0) {
-                    console.log(overlays);
+
                     $.post("php/get-timestamps.php",
                         function (data, status) {
                             timestamps = JSON.parse(data);
                             if(timestamps !== 0){
-                                console.log(timestamps);
+
                             }
                         });
                 } else {
@@ -278,35 +280,36 @@
         for(var i = 0; i < overlays.length; i++) {
             mustshow = false;
             for( var k = 0; k < timestamps.length; k++) {
-                if($('#player').prop('currentTime') >= timestamps[k].from && $('#player').prop('currentTime') < timestamps[k].to && overlays[i].id === timestamps[k].overlays){
+                if($('#player').prop('currentTime') >= timestamps[k]['from'] && $('#player').prop('currentTime') < timestamps[k]['to'] && overlays[i]['id'] === timestamps[k]['overlays']){
                     newone = timestamps[k];
                     mustshow = true;
                     break;
                 }
             }
             if(!mustshow){
-                $('#overlayControls').find('#'+overlays[i].id).remove();
+                $('#overlayControls').find('#'+overlays[i]['id']).remove();
                 for(var z = 0; z < timestamps.length; z++){
-                    if(Number(timestamps[z].overlays) == Number(overlays[i].id)){
-                        if(findIndex(handled, timestamps[z].id) != -1) {
-                            var pos = findIndex(handled, timestamps[z].id);
+                    if(Number(timestamps[z]['overlays']) == Number(overlays[i]['id'])){
+                        if(findIndex(handled, timestamps[z]['id']) != -1) {
+                            var pos = findIndex(handled, timestamps[z]['id']);
                             handled.splice(pos, 1);
                         }
                     }
                 }
             }
             if(typeof newone !== 'undefined' && mustshow) {
-                var bool = find(handled, newone.id);
+                var bool = find(handled, newone['id']);
                 if (handled.length <= 0 || !bool) {
-                    // console.log($('#overlayControls').find('#'+overlays[i]['id']).length);
-                    if ($('#overlayControls').find('#' + overlays[i].id).length === 0) {
-                        var toAppend = overlays[i].type.replace("%id", overlays[i].id);
+
+                    if ($('#overlayControls').find('#' + overlays[i]['id']).length === 0) {
+                        var toAppend = overlays[i]['type'].replace("%id", overlays[i]['id']);
                         $('#overlayControls').append(toAppend);
                         var appended = $('#'+overlays[i].id);
+console.log(appended)
                         appended.css('position', 'absolute');
-                        appended.css('top', newone.y+"px");
-                        appended.css('left', newone.x+"px");
-                        var splitted = overlays[i].props.split('|');
+                        appended.css('top', newone['y']+"px");
+                        appended.css('left', newone['x']+"px");
+                        var splitted = overlays[i]['props'].split('|');
                         for(var f = 0; f < splitted.length; f++){
                             var pair = splitted[f].split(':');
                             if(pair[0].charAt(0) == "!"){
@@ -317,20 +320,20 @@
                                 appended.attr(pair[0], pair[1]);
                             }
                         }
-                        handled.push(newone.id);
+                        handled.push(newone['id']);
                     } else {
-                        console.log("changing "+newone.id);
-                        $('#' + overlays[i].id).css('top', newone.y + "px");
-                        $('#' + overlays[i].id).css('left', newone.x + "px");
+
+                        $('#' + overlays[i]['id']).css('top', newone['y'] + "px");
+                        $('#' + overlays[i]['id']).css('left', newone['x'] + "px");
                         for(var m = 0; m < timestamps.length; m++){
-                            if(Number(timestamps[m].overlays) == Number(overlays[i].id)){
-                                if(findIndex(handled, timestamps[m].id) != -1) {
-                                    var mpos = findIndex(handled, timestamps[m].id);
+                            if(Number(timestamps[m]['overlays']) == Number(overlays[i]['id'])){
+                                if(findIndex(handled, timestamps[m]['id']) != -1) {
+                                    var mpos = findIndex(handled, timestamps[m]['id']);
                                     handled.splice(mpos, 1);
                                 }
                             }
                         }
-                        handled.push(newone.id);
+                        handled.push(newone['id']);
                     }
                 }else{
                 }
@@ -340,11 +343,15 @@
 
     function find(array, id){
         for(var i = 0; i < array.length; i++) {
+
+
+
             if (Number(array[i]) == Number(id)) {
+
                 return true;
             }
         }
-        // console.log("false");
+
         return false;
     }
 
@@ -372,25 +379,21 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
-$('.itemcontainer').bind('dragstart', function(e) {
-    e.originalEvent.dataTransfer.effectAllowed = 'copy';
-    e.originalEvent.dataTransfer.setData('Text', '#'+$(this).children().attr('id'));
-});
+function drop(ev){
+    ev.preventDefault();
+      var data=ev.dataTransfer.getData("text/html");
+      var nodeCopy = document.getElementById(data).cloneNode(true);
+      nodeCopy.id = "newId";
+      ev.target.appendChild(nodeCopy);
+}
 
-$('.overlay').bind('drop', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+function allowDrop(ev){
+    ev.preventDefault();
+}
 
-    var item = $(e.originalEvent.dataTransfer.getData('Text')).clone();
-    item.attr("draggable", false);
-    item.draggable({
-        containment: "parent"
-    });
-
-    $(this).append(item);
-
-    return false;
-}).bind('dragover', false);
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
 
 $('#getpos').on('click', function () {
     openNav();
